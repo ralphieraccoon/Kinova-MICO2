@@ -1,9 +1,11 @@
+#include "C:/Program Files (x86)/National Instruments/LabVIEW 2019/cintools/labview.lib"
 #include "pch.h"
 #include "klinterface.h"
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
-
+#include <string>
+#include <algorithm>
 
 int robotStatus;
 
@@ -56,7 +58,7 @@ int getMaxDevices()
 
 }
 
-int getDevices(KinovaDevice *devices)
+int getDevices(LVKinovaDevice *devices)
 {
 
 	KinovaDevice list[MAX_KINOVA_DEVICE];
@@ -64,6 +66,58 @@ int getDevices(KinovaDevice *devices)
 	int result = MyGetDevices(list, robotStatus);
 
 	memcpy(devices, list, MAX_KINOVA_DEVICE);
+
+	return result;
+
+}
+
+int setActiveDevice(KinovaDevice device)
+{
+
+	return MySetActiveDevice(device);
+
+}
+
+int TestConversion(LVKinovaDevice *device)
+{
+
+	KinovaDevice result;
+
+	result = *device;
+
+	LVKinovaDevice reconvert;
+
+	reconvert = LVKinovaDevice(result);
+
+	return 0;
+
+}
+
+
+
+char* LStrHandletoCharArray(LStrHandle string) {
+
+	std::string cppString((char*)LStrBuf(*string), 0, LStrLen(*string));
+
+	char result[SERIAL_LENGTH];
+
+	strcpy_s(result, cppString.c_str());
+
+	return result;
+
+}
+
+LStrHandle CharArraytoLStrHandle(char* arr) {
+
+	std::string cppString(arr);
+
+	LStrHandle result;
+
+	result = (LStrHandle)DSNewHandle(sizeof(int32) + cppString.size() * sizeof(uChar));
+
+	cppString.copy((char*)LStrBuf(*result), cppString.size() + 1);
+
+	LStrLen(*result) = cppString.size();
 
 	return result;
 
