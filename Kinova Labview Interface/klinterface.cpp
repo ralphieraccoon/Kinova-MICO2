@@ -7,6 +7,8 @@
 #include <string>
 #include <algorithm>
 
+HINSTANCE commandLayer_handle;
+
 int robotStatus;
 
 int(*MyInitAPI)();
@@ -20,8 +22,6 @@ int(*MyGetCartesianCommand)(CartesianPosition&);
 
 int open()
 {
-
-	HINSTANCE commandLayer_handle;
 
 	commandLayer_handle = LoadLibrary(L"CommandLayerWindows.dll");
 
@@ -47,6 +47,19 @@ int open()
 	//{
 		return (*MyInitAPI)();
 	//}
+
+}
+
+int close()
+{
+
+	int result;
+
+	result = (*MyCloseAPI)();
+
+	FreeLibrary(commandLayer_handle);
+
+	return result;
 
 }
 
