@@ -23,7 +23,7 @@ int open()
 
 	HINSTANCE commandLayer_handle;
 
-	commandLayer_handle = LoadLibrary(L"CommandLayerWindows.dll");
+	commandLayer_handle = LoadLibrary(L"C:\\Users\\mcjssdcc\\source\\repos\\Kinova Labview Interface\\Debug\\CommandLayerWindows.dll");
 
 	//We load the functions from the library (Under Windows, use GetProcAddress)
 	MyInitAPI = (int(*)()) GetProcAddress(commandLayer_handle, "InitAPI");
