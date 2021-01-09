@@ -27,11 +27,11 @@ int open()
 
 	//We load the functions from the library (Under Windows, use GetProcAddress)
 	MyInitAPI = (int(*)()) GetProcAddress(commandLayer_handle, "InitAPI");
-	//MyCloseAPI = (int(*)()) GetProcAddress(commandLayer_handle, "CloseAPI");
+	MyCloseAPI = (int(*)()) GetProcAddress(commandLayer_handle, "CloseAPI");
 	//MyMoveHome = (int(*)()) GetProcAddress(commandLayer_handle, "MoveHome");
 	//MyInitFingers = (int(*)()) GetProcAddress(commandLayer_handle, "InitFingers");
 	MyGetDevices = (int(*)(KinovaDevice devices[MAX_KINOVA_DEVICE], int& result)) GetProcAddress(commandLayer_handle, "GetDevices");
-	//MySetActiveDevice = (int(*)(KinovaDevice devices)) GetProcAddress(commandLayer_handle, "SetActiveDevice");
+	MySetActiveDevice = (int(*)(KinovaDevice devices)) GetProcAddress(commandLayer_handle, "SetActiveDevice");
 	//MySendBasicTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendBasicTrajectory");
 	//MyGetCartesianCommand = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianCommand");
 
@@ -65,16 +65,20 @@ int getDevices(LVKinovaDevice *devices)
 
 	int result = MyGetDevices(list, robotStatus);
 
-	memcpy(devices, list, MAX_KINOVA_DEVICE);
+	std::transform(list, list+MAX_KINOVA_DEVICE, devices, [](KinovaDevice i) { return LVKinovaDevice(i); });
 
 	return result;
 
 }
 
-int setActiveDevice(KinovaDevice device)
+int setActiveDevice(LVKinovaDevice *device)
 {
 
-	return MySetActiveDevice(device);
+	KinovaDevice input;
+
+	input = *device;
+
+	return MySetActiveDevice(input);
 
 }
 
