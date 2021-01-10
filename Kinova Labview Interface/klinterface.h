@@ -130,23 +130,23 @@ struct LVUserPosition {
 
 
 
-//extern "C" KLINTERFACE_API int open();
+extern "C" KLINTERFACE_API int open();
 
-//extern "C" KLINTERFACE_API int close();
+extern "C" KLINTERFACE_API int close();
 
-//extern "C" KLINTERFACE_API int getMaxDevices();
+extern "C" KLINTERFACE_API int getMaxDevices();
 
-//extern "C" KLINTERFACE_API int getDevices(KinovaDevice *devices);
+extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices);
 
-//extern "C" KLINTERFACE_API int setActiveDevice(KinovaDevice device);
+extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
 
-extern "C" KLINTERFACE_API int TestConversion(LVKinovaDevice *device);
+//extern "C" KLINTERFACE_API int TestConversion(LVKinovaDevice *device);
 
-//extern "C" KLINTERFACE_API void home();
+extern "C" KLINTERFACE_API int home();
 
-//extern "C" KLINTERFACE_API void addTrajectoryPoint(struct::TrajectoryPoint point);
+extern "C" KLINTERFACE_API int sendBasicTrajectory(LVTrajectoryPoint *point);
 
-//extern "C" KLINTERFACE_API void clearTrajectory();
+//extern "C" KLINTERFACE_API int clearTrajectory();
 
 //extern "C" KLINTERFACE_API void getCartesianPosition();
 

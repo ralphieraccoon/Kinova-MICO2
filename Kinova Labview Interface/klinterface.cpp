@@ -28,25 +28,25 @@ int open()
 	//We load the functions from the library (Under Windows, use GetProcAddress)
 	MyInitAPI = (int(*)()) GetProcAddress(commandLayer_handle, "InitAPI");
 	MyCloseAPI = (int(*)()) GetProcAddress(commandLayer_handle, "CloseAPI");
-	//MyMoveHome = (int(*)()) GetProcAddress(commandLayer_handle, "MoveHome");
-	//MyInitFingers = (int(*)()) GetProcAddress(commandLayer_handle, "InitFingers");
+	MyMoveHome = (int(*)()) GetProcAddress(commandLayer_handle, "MoveHome");
+	MyInitFingers = (int(*)()) GetProcAddress(commandLayer_handle, "InitFingers");
 	MyGetDevices = (int(*)(KinovaDevice devices[MAX_KINOVA_DEVICE], int& result)) GetProcAddress(commandLayer_handle, "GetDevices");
 	MySetActiveDevice = (int(*)(KinovaDevice devices)) GetProcAddress(commandLayer_handle, "SetActiveDevice");
-	//MySendBasicTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendBasicTrajectory");
+	MySendBasicTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendBasicTrajectory");
 	//MyGetCartesianCommand = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianCommand");
 
 	//Verify that all functions has been loaded correctly
-	//if ((MyInitAPI == NULL) || (MyCloseAPI == NULL) || (MySendBasicTrajectory == NULL) ||
-	//	(MyGetDevices == NULL) || (MySetActiveDevice == NULL) || (MyGetCartesianCommand == NULL) ||
-	//	(MyMoveHome == NULL) || (MyInitFingers == NULL))
+	if ((MyInitAPI == NULL) || (MyCloseAPI == NULL) || (MySendBasicTrajectory == NULL) ||
+		(MyGetDevices == NULL) || (MySetActiveDevice == NULL) || (MyGetCartesianCommand == NULL) ||
+		(MyMoveHome == NULL) || (MyInitFingers == NULL))
 
-	//{
-	//	return -1;
-	//}
-	//else
-	//{
+	{
+		return -1;
+	}
+	else
+	{
 		return (*MyInitAPI)();
-	//}
+	}
 
 }
 
@@ -95,6 +95,28 @@ int setActiveDevice(LVKinovaDevice *device)
 
 }
 
+
+int sendBasicTrajectory(LVTrajectoryPoint *point)
+{
+
+	TrajectoryPoint input;
+
+	input = *point;
+
+	return MySendBasicTrajectory(input);
+
+}
+
+int home()
+{
+
+	return MyMoveHome();
+
+}
+
+
+
+
 int TestConversion(LVKinovaDevice *device)
 {
 
@@ -109,8 +131,6 @@ int TestConversion(LVKinovaDevice *device)
 	return 0;
 
 }
-
-
 
 char* LStrHandletoCharArray(LStrHandle string) {
 
