@@ -15,6 +15,9 @@ typedef struct {
 	int32_t VersionRelease;
 	int32_t DeviceType;
 	int32_t DeviceID;
+	LVBoolean TestBool;
+	uint16_t Test_Enum;
+	float TestFloat;
 	} TD1;
 
 #include "lv_epilog.h"

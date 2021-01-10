@@ -67,6 +67,67 @@ struct LVKinovaDevice {
 
 };
 
+struct LVTrajectoryPoint {
+
+	LVUserPosition Position;
+
+	LVBoolean LimitationsActive;
+
+	LVBoolean SyncroType;
+
+	Limitation Limitations;
+
+	operator TrajectoryPoint() const
+
+	{
+
+		TrajectoryPoint k;
+
+		k.Position = Position;
+		k.LimitationsActive = LimitationsActive;
+		k.SynchroType = SyncroType;
+		k.Limitations = Limitations;
+
+		return k;
+
+	}
+
+};
+
+struct LVUserPosition {
+
+	uint16_t Type;
+
+	float Delay;
+
+	CartesianInfo CartesianPosition;
+
+	AngularInfo Actuators;
+
+	uint16_t HandMode;
+
+	FingersPosition Fingers;
+
+	operator UserPosition() const
+
+	{
+
+		UserPosition k;
+
+		k.Type = static_cast<POSITION_TYPE>(Type);
+		k.Delay = Delay;
+		k.CartesianPosition = CartesianPosition;
+		k.Actuators = Actuators;
+		k.HandMode = static_cast<HAND_MODE>(HandMode);
+		k.Fingers = Fingers;
+
+		return k;
+
+	}
+
+};
+
+
 
 
 //extern "C" KLINTERFACE_API int open();
