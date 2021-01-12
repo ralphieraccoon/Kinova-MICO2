@@ -67,33 +67,6 @@ struct LVKinovaDevice {
 
 };
 
-struct LVTrajectoryPoint {
-
-	LVUserPosition Position;
-
-	LVBoolean LimitationsActive;
-
-	LVBoolean SyncroType;
-
-	Limitation Limitations;
-
-	operator TrajectoryPoint() const
-
-	{
-
-		TrajectoryPoint k;
-
-		k.Position = Position;
-		k.LimitationsActive = LimitationsActive;
-		k.SynchroType = SyncroType;
-		k.Limitations = Limitations;
-
-		return k;
-
-	}
-
-};
-
 struct LVUserPosition {
 
 	uint16_t Type;
@@ -127,7 +100,32 @@ struct LVUserPosition {
 
 };
 
+struct LVTrajectoryPoint {
 
+	LVUserPosition Position;
+
+	LVBoolean LimitationsActive;
+
+	LVBoolean SyncroType;
+
+	Limitation Limitations;
+
+	operator TrajectoryPoint() const
+
+	{
+
+		TrajectoryPoint k;
+
+		k.Position = Position;
+		k.LimitationsActive = LimitationsActive;
+		k.SynchroType = SyncroType;
+		k.Limitations = Limitations;
+
+		return k;
+
+	}
+
+};
 
 
 extern "C" KLINTERFACE_API int open();
@@ -136,7 +134,7 @@ extern "C" KLINTERFACE_API int close();
 
 extern "C" KLINTERFACE_API int getMaxDevices();
 
-extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices);
+extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice devices[]);
 
 extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
 

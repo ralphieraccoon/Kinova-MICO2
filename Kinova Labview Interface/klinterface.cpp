@@ -33,7 +33,7 @@ int open()
 	MyGetDevices = (int(*)(KinovaDevice devices[MAX_KINOVA_DEVICE], int& result)) GetProcAddress(commandLayer_handle, "GetDevices");
 	MySetActiveDevice = (int(*)(KinovaDevice devices)) GetProcAddress(commandLayer_handle, "SetActiveDevice");
 	MySendBasicTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendBasicTrajectory");
-	//MyGetCartesianCommand = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianCommand");
+	MyGetCartesianCommand = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianCommand");
 
 	//Verify that all functions has been loaded correctly
 	if ((MyInitAPI == NULL) || (MyCloseAPI == NULL) || (MySendBasicTrajectory == NULL) ||
@@ -45,7 +45,10 @@ int open()
 	}
 	else
 	{
-		return (*MyInitAPI)();
+
+		robotStatus = (*MyInitAPI)();
+		return robotStatus;
+
 	}
 
 }
@@ -76,11 +79,22 @@ int getDevices(LVKinovaDevice *devices)
 
 	KinovaDevice list[MAX_KINOVA_DEVICE];
 
-	int result = MyGetDevices(list, robotStatus);
+	int count = (*MyGetDevices)(list, robotStatus);
 
-	std::transform(list, list+MAX_KINOVA_DEVICE, devices, [](KinovaDevice i) { return LVKinovaDevice(i); });
+	LVKinovaDevice result[MAX_KINOVA_DEVICE];
 
-	return result;
+	//*devices = LVKinovaDevice(list[0]);
+
+	for (int i = 0; i < MAX_KINOVA_DEVICE; i++)
+	{
+		result[i] = LVKinovaDevice(list[i]);
+	}
+
+	//devices = result;
+
+	memcpy(devices, result, sizeof(LVKinovaDevice) * MAX_KINOVA_DEVICE);
+
+	return robotStatus;
 
 }
 
@@ -110,7 +124,7 @@ int sendBasicTrajectory(LVTrajectoryPoint *point)
 int home()
 {
 
-	return MyMoveHome();
+	return (*MyMoveHome)();
 
 }
 
@@ -152,7 +166,7 @@ LStrHandle CharArraytoLStrHandle(char* arr) {
 
 	result = (LStrHandle)DSNewHandle(sizeof(int32) + cppString.size() * sizeof(uChar));
 
-	cppString.copy((char*)LStrBuf(*result), cppString.size() + 1);
+	cppString.copy((char*)LStrBuf(*result), cppString.size());
 
 	LStrLen(*result) = cppString.size();
 
