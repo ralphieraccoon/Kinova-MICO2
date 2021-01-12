@@ -58,7 +58,7 @@ int close()
 
 	int result;
 
-	result = (*MyCloseAPI)();
+	result = MyCloseAPI();
 
 	FreeLibrary(commandLayer_handle);
 
@@ -83,14 +83,10 @@ int getDevices(LVKinovaDevice *devices)
 
 	LVKinovaDevice result[MAX_KINOVA_DEVICE];
 
-	//*devices = LVKinovaDevice(list[0]);
-
 	for (int i = 0; i < MAX_KINOVA_DEVICE; i++)
 	{
 		result[i] = LVKinovaDevice(list[i]);
 	}
-
-	//devices = result;
 
 	memcpy(devices, result, sizeof(LVKinovaDevice) * MAX_KINOVA_DEVICE);
 
@@ -128,8 +124,12 @@ int home()
 
 }
 
+int initFingers()
+{
 
+	return MyInitFingers();
 
+}
 
 int TestConversion(LVKinovaDevice *device)
 {

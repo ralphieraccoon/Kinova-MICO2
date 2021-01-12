@@ -106,7 +106,7 @@ struct LVTrajectoryPoint {
 
 	LVBoolean LimitationsActive;
 
-	LVBoolean SyncroType;
+	LVBoolean SynchroType;
 
 	Limitation Limitations;
 
@@ -118,7 +118,7 @@ struct LVTrajectoryPoint {
 
 		k.Position = Position;
 		k.LimitationsActive = LimitationsActive;
-		k.SynchroType = SyncroType;
+		k.SynchroType = SynchroType;
 		k.Limitations = Limitations;
 
 		return k;
@@ -134,7 +134,7 @@ extern "C" KLINTERFACE_API int close();
 
 extern "C" KLINTERFACE_API int getMaxDevices();
 
-extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice devices[]);
+extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices);
 
 extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
 
@@ -143,6 +143,8 @@ extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
 extern "C" KLINTERFACE_API int home();
 
 extern "C" KLINTERFACE_API int sendBasicTrajectory(LVTrajectoryPoint *point);
+
+extern "C" KLINTERFACE_API int initFingers();
 
 //extern "C" KLINTERFACE_API int clearTrajectory();
 
