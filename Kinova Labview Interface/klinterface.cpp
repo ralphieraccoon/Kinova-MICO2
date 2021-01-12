@@ -124,7 +124,7 @@ int sendBasicTrajectory(LVTrajectoryPoint *point)
 int home()
 {
 
-	return (*MyMoveHome)();
+	return MyMoveHome();
 
 }
 
