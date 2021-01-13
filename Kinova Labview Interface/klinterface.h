@@ -1,3 +1,5 @@
+#pragma pack(1)
+
 #include "CommunicationLayerWindows.h"
 #include "KinovaTypes.h"
 #include "C:/Program Files (x86)/National Instruments/LabVIEW 2019/cintools/extcode.h"
@@ -127,7 +129,6 @@ struct LVTrajectoryPoint {
 
 };
 
-
 extern "C" KLINTERFACE_API int open();
 
 extern "C" KLINTERFACE_API int close();
@@ -138,7 +139,7 @@ extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices);
 
 extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
 
-//extern "C" KLINTERFACE_API int TestConversion(LVKinovaDevice *device);
+extern "C" KLINTERFACE_API int TestConversion(LVTrajectoryPoint *test);
 
 extern "C" KLINTERFACE_API int home();
 

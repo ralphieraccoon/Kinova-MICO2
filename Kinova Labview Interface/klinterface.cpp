@@ -4,6 +4,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include <stdlib.h>
 #include <string>
 #include <algorithm>
 
@@ -131,16 +132,12 @@ int initFingers()
 
 }
 
-int TestConversion(LVKinovaDevice *device)
+int TestConversion(LVTrajectoryPoint *test)
 {
 
-	KinovaDevice result;
+	TrajectoryPoint input;
 
-	result = *device;
-
-	LVKinovaDevice reconvert;
-
-	reconvert = LVKinovaDevice(result);
+	input = *test;
 
 	return 0;
 
