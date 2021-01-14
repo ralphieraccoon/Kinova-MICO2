@@ -6,7 +6,6 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string>
-#include <algorithm>
 
 HINSTANCE commandLayer_handle;
 
