@@ -135,11 +135,9 @@ extern "C" KLINTERFACE_API int close();
 
 extern "C" KLINTERFACE_API int getMaxDevices();
 
-extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices);
+extern "C" KLINTERFACE_API int getDevices(LVKinovaDevice *devices, int *devicecount);
 
 extern "C" KLINTERFACE_API int setActiveDevice(LVKinovaDevice *device);
-
-extern "C" KLINTERFACE_API int TestConversion(LVTrajectoryPoint *test);
 
 extern "C" KLINTERFACE_API int home();
 
@@ -147,15 +145,15 @@ extern "C" KLINTERFACE_API int sendBasicTrajectory(LVTrajectoryPoint *point);
 
 extern "C" KLINTERFACE_API int initFingers();
 
-//extern "C" KLINTERFACE_API int clearTrajectory();
+extern "C" KLINTERFACE_API int clearTrajectory();
 
-//extern "C" KLINTERFACE_API void getCartesianPosition();
+extern "C" KLINTERFACE_API int getCartesianPosition(CartesianPosition *position);
 
-//extern "C" KLINTERFACE_API void getAnglePosition();
+extern "C" KLINTERFACE_API int getAngularPosition(AngularPosition *actuators);
 
-//extern "C" KLINTERFACE_API void getCartesianCommand();
+extern "C" KLINTERFACE_API int getCartesianCommand(CartesianPosition *position);
 
-//extern "C" KLINTERFACE_API void getAngleCommand();
+extern "C" KLINTERFACE_API int getAngularCommand(AngularPosition *actuators);
 
 
 

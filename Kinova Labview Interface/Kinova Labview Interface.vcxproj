@@ -99,7 +99,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Standalone|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -135,8 +135,7 @@
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\National Instruments\LabVIEW 2019\cintools;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)CommandLayerWindows.dll" "$(TargetDir)"
-xcopy "$(ProjectDir)CommunicationLayerWindows.dll" "$(TargetDir)"</Command>
+      <Command>xcopy "$(TargetDir)KLInterface.dll" "..\..\..\..\Documents\Kinova Labview Interface\" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Standalone|Win32'">

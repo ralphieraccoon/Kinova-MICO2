@@ -20,6 +20,10 @@ int(*MySetActiveDevice)(KinovaDevice device);
 int(*MyMoveHome)();
 int(*MyInitFingers)();
 int(*MyGetCartesianCommand)(CartesianPosition&);
+int(*MyGetCartesianPosition)(CartesianPosition&);
+int(*MyGetAngularCommand)(AngularPosition&);
+int(*MyGetAngularPosition)(AngularPosition&);
+int(*MyEraseAllTrajectories)();
 
 int open()
 {
@@ -35,11 +39,17 @@ int open()
 	MySetActiveDevice = (int(*)(KinovaDevice devices)) GetProcAddress(commandLayer_handle, "SetActiveDevice");
 	MySendBasicTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendBasicTrajectory");
 	MyGetCartesianCommand = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianCommand");
+	MyGetCartesianPosition = (int(*)(CartesianPosition&)) GetProcAddress(commandLayer_handle, "GetCartesianPosition");
+	MyGetAngularCommand = (int(*)(AngularPosition&)) GetProcAddress(commandLayer_handle, "GetAngularCommand");
+	MyGetAngularPosition = (int(*)(AngularPosition&)) GetProcAddress(commandLayer_handle, "GetAngularPosition");
+	MyEraseAllTrajectories = (int(*)()) GetProcAddress(commandLayer_handle, "EraseAllTrajectories");
 
 	//Verify that all functions has been loaded correctly
 	if ((MyInitAPI == NULL) || (MyCloseAPI == NULL) || (MySendBasicTrajectory == NULL) ||
 		(MyGetDevices == NULL) || (MySetActiveDevice == NULL) || (MyGetCartesianCommand == NULL) ||
-		(MyMoveHome == NULL) || (MyInitFingers == NULL))
+		(MyMoveHome == NULL) || (MyInitFingers == NULL) || (MyGetCartesianCommand == NULL) || 
+		(MyGetCartesianPosition == NULL) || (MyGetAngularCommand == NULL) || (MyGetAngularPosition == NULL) ||
+		(MyEraseAllTrajectories == NULL))
 
 	{
 		return -1;
@@ -75,12 +85,12 @@ int getMaxDevices()
 
 }
 
-int getDevices(LVKinovaDevice *devices)
+int getDevices(LVKinovaDevice *devices, int *devicecount)
 {
 
 	KinovaDevice list[MAX_KINOVA_DEVICE];
 
-	int count = (*MyGetDevices)(list, robotStatus);
+	*devicecount = MyGetDevices(list, robotStatus);
 
 	LVKinovaDevice result[MAX_KINOVA_DEVICE];
 
@@ -132,16 +142,43 @@ int initFingers()
 
 }
 
-int TestConversion(LVTrajectoryPoint *test)
+
+int getCartesianCommand(CartesianPosition *position)
 {
 
-	TrajectoryPoint input;
-
-	input = *test;
-
-	return 0;
+	return MyGetCartesianCommand(*position);
 
 }
+
+int getCartesianPosition(CartesianPosition *position)
+{
+
+	return MyGetCartesianPosition(*position);
+
+}
+
+int getAngularCommand(AngularPosition* actuators)
+{
+
+	return MyGetAngularCommand(*actuators);
+
+}
+
+int getAngularPosition(AngularPosition* actuators)
+{
+
+	return MyGetAngularPosition(*actuators);
+
+}
+
+int clearTrajectory()
+{
+
+	return MyEraseAllTrajectories();
+
+}
+
+
 
 char* LStrHandletoCharArray(LStrHandle string) {
 
