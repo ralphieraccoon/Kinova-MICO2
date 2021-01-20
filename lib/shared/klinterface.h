@@ -6,7 +6,7 @@
 
 #else
 
-#include "../LKInterface_so/Kinova.API.CommLayerUbuntu.h"
+#include "../KLInterface_so/Kinova.API.CommLayerUbuntu.h"
 
 #endif
 

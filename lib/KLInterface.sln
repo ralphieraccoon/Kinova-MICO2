@@ -7,7 +7,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KLInterface_Test", "KLInter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KLInterface_dll", "KLInterface_dll\KLInterface_dll.vcxproj", "{19B9616E-AF34-43DC-841E-8EC036DE20B5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LKInterface_so", "LKInterface_so\LKInterface_so.vcxproj", "{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KLInterface_so", "KLInterface_so", "{2E70722B-67A1-44E5-AA00-2C9C373BB78D}"
+	ProjectSection(SolutionItems) = preProject
+		KLInterface_so\CMakeLists.txt = KLInterface_so\CMakeLists.txt
+		CMakeSettings.json = CMakeSettings.json
+		shared\KinovaTypes.h = shared\KinovaTypes.h
+		shared\klinterface.cpp = shared\klinterface.cpp
+		shared\klinterface.h = shared\klinterface.h
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,42 +69,6 @@ Global
 		{19B9616E-AF34-43DC-841E-8EC036DE20B5}.Standalone|x64.Build.0 = Standalone|x64
 		{19B9616E-AF34-43DC-841E-8EC036DE20B5}.Standalone|x86.ActiveCfg = Standalone|Win32
 		{19B9616E-AF34-43DC-841E-8EC036DE20B5}.Standalone|x86.Build.0 = Standalone|Win32
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM.ActiveCfg = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM.Build.0 = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM.Deploy.0 = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM64.Build.0 = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x64.ActiveCfg = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x64.Build.0 = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x64.Deploy.0 = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x86.ActiveCfg = Debug|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x86.Build.0 = Debug|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Debug|x86.Deploy.0 = Debug|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM.ActiveCfg = Release|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM.Build.0 = Release|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM.Deploy.0 = Release|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM64.ActiveCfg = Release|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM64.Build.0 = Release|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|ARM64.Deploy.0 = Release|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x64.ActiveCfg = Release|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x64.Build.0 = Release|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x64.Deploy.0 = Release|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x86.ActiveCfg = Release|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x86.Build.0 = Release|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Release|x86.Deploy.0 = Release|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM.ActiveCfg = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM.Build.0 = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM.Deploy.0 = Debug|ARM
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM64.ActiveCfg = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM64.Build.0 = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|ARM64.Deploy.0 = Debug|ARM64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x64.ActiveCfg = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x64.Build.0 = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x64.Deploy.0 = Debug|x64
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x86.ActiveCfg = Debug|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x86.Build.0 = Debug|x86
-		{ADCCABF6-C918-43AA-AB91-AC6EDD545FE3}.Standalone|x86.Deploy.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
