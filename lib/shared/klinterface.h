@@ -186,5 +186,8 @@ extern "C" KLINTERFACE_API int getCartesianCommand(CartesianPosition *position);
 
 extern "C" KLINTERFACE_API int getAngularCommand(AngularPosition *actuators);
 
+extern "C" KLINTERFACE_API int getGlobalTrajectoryInfo(TrajectoryFIFO *data);
+
+
 
 

@@ -38,6 +38,7 @@ int(*MyGetCartesianPosition)(CartesianPosition&);
 int(*MyGetAngularCommand)(AngularPosition&);
 int(*MyGetAngularPosition)(AngularPosition&);
 int(*MyEraseAllTrajectories)();
+int(*MyGetGlobalTrajectoryInfo)(TrajectoryFIFO&);
 
 int open()
 {
@@ -59,6 +60,7 @@ int open()
 	MyGetAngularCommand = (int(*)(AngularPosition&)) GetProcAddress(commandLayer_handle, "GetAngularCommand");
 	MyGetAngularPosition = (int(*)(AngularPosition&)) GetProcAddress(commandLayer_handle, "GetAngularPosition");
 	MyEraseAllTrajectories = (int(*)()) GetProcAddress(commandLayer_handle, "EraseAllTrajectories");
+	MyGetGlobalTrajectoryInfo = (int(*)(TrajectoryFIFO&)) GetProcAddress(commandLayer_handle, "GetGlobalTrajectoryInfo");
 
 #else
 
@@ -77,6 +79,7 @@ int open()
 	MyGetAngularCommand = (int(*)(AngularPosition&)) dlsym(commandLayer_handle, "GetAngularCommand");
 	MyGetAngularPosition = (int(*)(AngularPosition&)) dlsym(commandLayer_handle, "GetAngularPosition");
 	MyEraseAllTrajectories = (int(*)()) dlsym(commandLayer_handle, "EraseAllTrajectories");
+	MyGetGlobalTrajectoryInfo = (int(*)(TrajectoryFIFO&)) dlsym(commandLayer_handle, "GetGlobalTrajectoryInfo");
 
 #endif
 
@@ -85,7 +88,7 @@ int open()
 		(MyGetDevices == NULL) || (MySetActiveDevice == NULL) || (MyGetCartesianCommand == NULL) ||
 		(MyMoveHome == NULL) || (MyInitFingers == NULL) || (MyGetCartesianCommand == NULL) || 
 		(MyGetCartesianPosition == NULL) || (MyGetAngularCommand == NULL) || (MyGetAngularPosition == NULL) ||
-		(MyEraseAllTrajectories == NULL))
+		(MyEraseAllTrajectories == NULL) || (MyGetGlobalTrajectoryInfo == NULL))
 
 	{
 		return -1;
@@ -222,6 +225,12 @@ int clearTrajectory()
 
 }
 
+int getGlobalTrajectoryInfo(TrajectoryFIFO* data)
+{
+
+	return MyGetGlobalTrajectoryInfo(*data);
+
+}
 
 
 char* LStrHandletoCharArray(LStrHandle string) {
