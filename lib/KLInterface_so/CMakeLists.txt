@@ -28,6 +28,8 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY bin)
 set(CMAKE_BUILD_TYPE Debug)
 
+set(BUILD_RPATH_USE_ORIGIN TRUE)
+
 cmake_minimum_required(VERSION 3.14)
 
 project(KLInterface_so)

@@ -188,6 +188,6 @@ extern "C" KLINTERFACE_API int getAngularCommand(AngularPosition *actuators);
 
 extern "C" KLINTERFACE_API int getGlobalTrajectoryInfo(TrajectoryFIFO *data);
 
-
+extern "C" KLINTERFACE_API int sendAdvanceTrajectory(LVTrajectoryPoint *point);
 
 

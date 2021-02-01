@@ -39,6 +39,7 @@ int(*MyGetAngularCommand)(AngularPosition&);
 int(*MyGetAngularPosition)(AngularPosition&);
 int(*MyEraseAllTrajectories)();
 int(*MyGetGlobalTrajectoryInfo)(TrajectoryFIFO&);
+int(*MySendAdvanceTrajectory)(TrajectoryPoint command);
 
 int open()
 {
@@ -61,8 +62,11 @@ int open()
 	MyGetAngularPosition = (int(*)(AngularPosition&)) GetProcAddress(commandLayer_handle, "GetAngularPosition");
 	MyEraseAllTrajectories = (int(*)()) GetProcAddress(commandLayer_handle, "EraseAllTrajectories");
 	MyGetGlobalTrajectoryInfo = (int(*)(TrajectoryFIFO&)) GetProcAddress(commandLayer_handle, "GetGlobalTrajectoryInfo");
+	MySendAdvanceTrajectory = (int(*)(TrajectoryPoint)) GetProcAddress(commandLayer_handle, "SendAdvanceTrajectory");
 
 #else
+
+	void* commLayer_handle = dlopen("Kinova.API.CommLayerUbuntu.so", RTLD_NOW | RTLD_GLOBAL);
 
 	commandLayer_handle = dlopen("Kinova.API.USBCommandLayerUbuntu.so", RTLD_NOW | RTLD_GLOBAL);
 
@@ -80,6 +84,9 @@ int open()
 	MyGetAngularPosition = (int(*)(AngularPosition&)) dlsym(commandLayer_handle, "GetAngularPosition");
 	MyEraseAllTrajectories = (int(*)()) dlsym(commandLayer_handle, "EraseAllTrajectories");
 	MyGetGlobalTrajectoryInfo = (int(*)(TrajectoryFIFO&)) dlsym(commandLayer_handle, "GetGlobalTrajectoryInfo");
+	MySendAdvanceTrajectory = (int(*)(TrajectoryPoint)) dlsym(commandLayer_handle, "SendAdvanceTrajectory");
+
+	//dlclose(commLayer_handle);
 
 #endif
 
@@ -88,7 +95,7 @@ int open()
 		(MyGetDevices == NULL) || (MySetActiveDevice == NULL) || (MyGetCartesianCommand == NULL) ||
 		(MyMoveHome == NULL) || (MyInitFingers == NULL) || (MyGetCartesianCommand == NULL) || 
 		(MyGetCartesianPosition == NULL) || (MyGetAngularCommand == NULL) || (MyGetAngularPosition == NULL) ||
-		(MyEraseAllTrajectories == NULL) || (MyGetGlobalTrajectoryInfo == NULL))
+		(MyEraseAllTrajectories == NULL) || (MyGetGlobalTrajectoryInfo == NULL) || (MySendAdvanceTrajectory == NULL))
 
 	{
 		return -1;
@@ -172,6 +179,17 @@ int sendBasicTrajectory(LVTrajectoryPoint *point)
 	input = *point;
 
 	return MySendBasicTrajectory(input);
+
+}
+
+int sendAdvanceTrajectory(LVTrajectoryPoint* point)
+{
+
+	TrajectoryPoint input;
+
+	input = *point;
+
+	return MySendAdvanceTrajectory(input);
 
 }
 

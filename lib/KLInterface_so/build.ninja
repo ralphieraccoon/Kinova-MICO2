@@ -43,13 +43,13 @@ include CMakeFiles/rules.ninja
 
 build cmake_object_order_depends_target_KLInterface: phony || CMakeFiles/KLInterface.dir
 
-build CMakeFiles/KLInterface.dir/C_/Users/djcro/Kinova-LabView-Interface/lib/shared/klinterface.cpp.o: CXX_COMPILER__KLInterface_Debug C$:/Users/djcro/Kinova-LabView-Interface/lib/shared/klinterface.cpp || cmake_object_order_depends_target_KLInterface
+build CMakeFiles/KLInterface.dir/C_/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/shared/klinterface.cpp.o: CXX_COMPILER__KLInterface_Debug C$:/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/shared/klinterface.cpp || cmake_object_order_depends_target_KLInterface
   DEFINES = -DKLInterface_EXPORTS
-  DEP_FILE = CMakeFiles\KLInterface.dir\C_\Users\djcro\Kinova-LabView-Interface\lib\shared\klinterface.cpp.o.d
+  DEP_FILE = CMakeFiles\KLInterface.dir\C_\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\shared\klinterface.cpp.o.d
   FLAGS = -g -fPIC
   INCLUDES = -I"C:/Program Files (x86)/National Instruments/LabVIEW 2019/cintools"
   OBJECT_DIR = CMakeFiles\KLInterface.dir
-  OBJECT_FILE_DIR = CMakeFiles\KLInterface.dir\C_\Users\djcro\Kinova-LabView-Interface\lib\shared
+  OBJECT_FILE_DIR = CMakeFiles\KLInterface.dir\C_\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\shared
 
 
 # =============================================================================
@@ -59,7 +59,7 @@ build CMakeFiles/KLInterface.dir/C_/Users/djcro/Kinova-LabView-Interface/lib/sha
 #############################################
 # Link the shared library bin\libKLInterface.so
 
-build bin/libKLInterface.so: CXX_SHARED_LIBRARY_LINKER__KLInterface_Debug CMakeFiles/KLInterface.dir/C_/Users/djcro/Kinova-LabView-Interface/lib/shared/klinterface.cpp.o
+build bin/libKLInterface.so: CXX_SHARED_LIBRARY_LINKER__KLInterface_Debug CMakeFiles/KLInterface.dir/C_/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/shared/klinterface.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles\KLInterface.dir
   POST_BUILD = cd .
@@ -74,7 +74,7 @@ build bin/libKLInterface.so: CXX_SHARED_LIBRARY_LINKER__KLInterface_Debug CMakeF
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\djcro\Kinova-LabView-Interface\lib\KLInterface_so && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\KLInterface_so && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -85,7 +85,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\djcro\Kinova-LabView-Interface\lib\KLInterface_so && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\djcro\Kinova-LabView-Interface\lib\KLInterface_so -BC:\Users\djcro\Kinova-LabView-Interface\lib\KLInterface_so"
+  COMMAND = cmd.exe /C "cd /D C:\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\KLInterface_so && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\KLInterface_so -BC:\Users\mcjssdcc\Documents\Kinova-Labview-Interface\lib\KLInterface_so"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -105,7 +105,7 @@ build libKLInterface.so: phony bin/libKLInterface.so
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/djcro/Kinova-LabView-Interface/lib/KLInterface_so
+# Folder: C:/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/KLInterface_so
 
 build all: phony bin/libKLInterface.so
 
