@@ -6,7 +6,11 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Item Name="Public" Type="Folder">
-		<Item Name="Configure" Type="Folder"/>
+		<Item Name="Device" Type="Folder">
+			<Item Name="Device.mnu" Type="Document" URL="../Public/Device/Device.mnu"/>
+			<Item Name="Get_Devices.vi" Type="VI" URL="../Public/Device/Get_Devices.vi"/>
+			<Item Name="Set_Active_Device.vi" Type="VI" URL="../Public/Device/Set_Active_Device.vi"/>
+		</Item>
 		<Item Name="Motion" Type="Folder">
 			<Item Name="Clear_Trajectory.vi" Type="VI" URL="../Public/Motion/Clear_Trajectory.vi"/>
 			<Item Name="Move_Home.vi" Type="VI" URL="../Public/Motion/Move_Home.vi"/>
@@ -21,12 +25,10 @@
 				<Item Name="Get_Cartesian_Command.vi" Type="VI" URL="../Public/Status/Cartesian/Get_Cartesian_Command.vi"/>
 				<Item Name="Get_Cartesian_Position.vi" Type="VI" URL="../Public/Status/Cartesian/Get_Cartesian_Position.vi"/>
 			</Item>
+			<Item Name="Get_FIFO.vi" Type="VI" URL="../Public/Status/Get_FIFO.vi"/>
 		</Item>
 		<Item Name="Utility" Type="Folder">
-			<Item Name="Get_Devices.vi" Type="VI" URL="../Public/Utility/Get_Devices.vi"/>
-			<Item Name="Get_FIFO.vi" Type="VI" URL="../Public/Utility/Get_FIFO.vi"/>
 			<Item Name="Init_Fingers.vi" Type="VI" URL="../Public/Utility/Init_Fingers.vi"/>
-			<Item Name="Set_Active_Device.vi" Type="VI" URL="../Public/Utility/Set_Active_Device.vi"/>
 		</Item>
 		<Item Name="Close.vi" Type="VI" URL="../Public/Close.vi"/>
 		<Item Name="dir.mnu" Type="Document" URL="../Public/dir.mnu"/>
