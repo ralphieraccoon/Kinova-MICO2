@@ -9,7 +9,7 @@
 
 #include <vector>
 #include "KinovaTypes.h"
-#include "CommunicationLayerWindows.h"
+#include "CommunicationLayer.h"
 #include <stdio.h>
 #include <Windows.h>
 #include <tchar.h>

@@ -1,3 +1,0 @@
-C:/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/KLInterface_so/CMakeFiles/KLInterface.dir
-C:/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/KLInterface_so/CMakeFiles/edit_cache.dir
-C:/Users/mcjssdcc/Documents/Kinova-Labview-Interface/lib/KLInterface_so/CMakeFiles/rebuild_cache.dir
