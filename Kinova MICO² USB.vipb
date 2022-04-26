@@ -1,6 +1,6 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2021-08-18 20:53:47" Modified_Date="2021-11-26 21:13:57" Creator="djcro" Comments="" ID="157344460f81e9b9e0d5d805c3c57cc7">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2021-08-18 20:53:47" Modified_Date="2022-04-26 17:54:45" Creator="djcro" Comments="" ID="a12a8b4ae167632075a6d74a22ba4a4e">
   <Library_General_Settings>
-    <Package_File_Name>Kinova_MICO²_USB</Package_File_Name>
+    <Package_File_Name>Kinova_MICO2_USB</Package_File_Name>
     <Library_Version>0.0.0.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
@@ -293,7 +293,7 @@
         <Path>Device</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1C47FB5DCA5D067E8E6C64F81175542E</GUID>
+      <GUID>FF6D4697D61485272E832CD84881F38A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -356,7 +356,7 @@
         <Path>Public\Motion\Send_Trajectory.vi</Path>
         <VI_Title>Send Trajectory</VI_Title>
       </Items_Data>
-      <GUID>53A3C57C8F70213B26155A5BACB61396</GUID>
+      <GUID>5C1231C2107ACC4D5B21A1693D9D0A52</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -419,7 +419,7 @@
         <Path>Public\Status\Get_FIFO.vi</Path>
         <VI_Title>Get FIFO</VI_Title>
       </Items_Data>
-      <GUID>CEA31183D6D7553E580C37FC6FE25D43</GUID>
+      <GUID>A0200129F5C34F3D3434BAF5E7C52B4A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -468,7 +468,7 @@
         <Path>Public\Status\Angular\Get_Angular_Position.vi</Path>
         <VI_Title>Get Angular Position</VI_Title>
       </Items_Data>
-      <GUID>7DA755F0AAB1441EE5BDDABF24F7E827</GUID>
+      <GUID>7104126E85CE1448494E4D585E8D6CFA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -517,7 +517,7 @@
         <Path>Public\Status\Cartesian\Get_Cartesian_Position.vi</Path>
         <VI_Title>Get Cartesian Position</VI_Title>
       </Items_Data>
-      <GUID>4A951D158ADEEECE754008068D5CE00D</GUID>
+      <GUID>7BD62CB2E3938114525B9CBF56CCD15C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -552,7 +552,7 @@
         <Path>Public\Utility\Init_Fingers.vi</Path>
         <VI_Title>Initialise Fingers</VI_Title>
       </Items_Data>
-      <GUID>6F7B049BF6B5BEA8BDD01AEB0A7332EC</GUID>
+      <GUID>A8664CB75D9C6DEFFCD71AE582152B7C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -601,7 +601,7 @@
         <Path>Public\Device\Set_Active_Device.vi</Path>
         <VI_Title>Set Active Device</VI_Title>
       </Items_Data>
-      <GUID>DBB072FF1FDB4A315EFE65F19FDAFC12</GUID>
+      <GUID>C072B7D0EDF26CDA6CCDAC80EFBE983C</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
